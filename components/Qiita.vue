@@ -1,7 +1,7 @@
 <!-- Please remove this file from your project -->
 <template>
   <div>
-    <h3 class="text-xl font-semibold text-center my-2">Recent Posts</h3>
+    <h3 class="text-xl font-semibold text-center mt-5 mb-2">Recent Posts</h3>
     <div v-if="state.posts.length" class="w-full space-y-3">
       <div
         v-for="post in state.posts.slice(0, nbPosts)"
@@ -17,9 +17,9 @@
       >
         <a :href="post.url" target="_blank" rel="noopener noreferrer">
           <div class="sm:flex sm:justify-between sm:align-top">
-            <h3 class="text-base sm:text-lg font-semibold">
+            <h4 class="text-base sm:text-lg font-semibold">
               {{ post.title }}
-            </h3>
+            </h4>
             <span class="text-xs text-gray-500">{{
               post.created_at.substr(0, 10)
             }}</span>
