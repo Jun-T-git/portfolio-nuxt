@@ -1,6 +1,6 @@
 <template>
   <div class="bg-gray-200">
-    <h1 class="text-3xl sm:text-5xl font-bold text-center py-5">
+    <h1 class="text-3xl sm:text-5xl font-bold text-center pb-10 pt-16">
       Jun's Portfolio
     </h1>
     <div
@@ -14,7 +14,8 @@
             font-bold
             text-center
             border-b border-gray-500
-            my-3
+            mt-7
+            mb-4
           "
         >
           GitHub
@@ -29,7 +30,8 @@
             font-bold
             text-center
             border-b border-gray-500
-            my-3
+            mt-7
+            mb-4
           "
         >
           Qiita

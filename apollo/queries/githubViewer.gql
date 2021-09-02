@@ -27,5 +27,17 @@
         updatedAt
       }
     }
+    contributionsCollection {
+      contributionCalendar {
+        totalContributions
+        weeks {
+          firstDay
+          contributionDays {
+            contributionCount
+            date
+          }
+        }
+      }
+    }
   }
 }
