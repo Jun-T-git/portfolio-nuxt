@@ -1,12 +1,40 @@
 <template>
-  <div class="bg-gray-100">
-    <h1 class="text-3xl font-bold text-center py-5">Jun's Portfolio</h1>
+  <div class="bg-gray-200">
+    <h1 class="text-3xl sm:text-5xl font-bold text-center py-5">
+      Jun's Portfolio
+    </h1>
     <div
       class="flex flex-col gap-5 min-h-screen max-w-4xl mx-auto px-1 sm:px-3"
     >
       <section>
-        <h2 class="text-2xl font-bold text-center border-b my-3">Qiita</h2>
-        <QiitaPosts :qiitaPosts="state.qiitaPosts.slice(0, 4)" />
+        <h2
+          class="
+            text-2xl
+            sm:text-3xl
+            font-bold
+            text-center
+            border-b border-gray-500
+            my-3
+          "
+        >
+          GitHub
+        </h2>
+        <GitHub />
+      </section>
+      <section>
+        <h2
+          class="
+            text-2xl
+            sm:text-3xl
+            font-bold
+            text-center
+            border-b border-gray-500
+            my-3
+          "
+        >
+          Qiita
+        </h2>
+        <Qiita :postNum="4" />
       </section>
       <div class="flex justify-center pt-4 space-x-2">
         <a href="https://github.com/nuxt/nuxt.js" target="_blank"
@@ -49,36 +77,10 @@
 </template>
 
 <script lang="ts">
-import axios from 'axios'
-import { defineComponent, reactive, onMounted } from '@vue/composition-api'
-import QiitaPosts from './QiitaPosts.vue'
-
+import { defineComponent } from '@vue/composition-api'
+import Qiita from './Qiita.vue'
+import GitHub from './GitHub.vue'
 export default defineComponent({
-  components: { QiitaPosts },
-  name: 'App',
-  setup() {
-    const state = reactive({
-      qiitaPosts: [],
-    })
-    const fetchPosts = async () => {
-      const res = await axios.get(
-        'https://qiita.com/api/v2/authenticated_user/items',
-        {
-          headers: {
-            Authorization: `Bearer ${process.env.QIITA_API_ACCESS_TOKEN}`,
-          },
-        }
-      )
-      console.log(res)
-      state.qiitaPosts = res.data
-    }
-    onMounted(async () => {
-      await fetchPosts()
-    })
-    return {
-      state,
-      fetchPosts,
-    }
-  },
+  components: { Qiita, GitHub },
 })
 </script>

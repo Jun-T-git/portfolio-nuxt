@@ -1,5 +1,9 @@
 require('dotenv').config()
-const { QIITA_API_ACCESS_TOKEN } = process.env
+const {
+  QIITA_API_ACCESS_TOKEN,
+  GITHUB_API_ACCESS_TOKEN1,
+  GITHUB_API_ACCESS_TOKEN2,
+} = process.env
 
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -34,10 +38,18 @@ export default {
     '@nuxtjs/tailwindcss',
     '@nuxtjs/composition-api/module',
   ],
+  tailwindcss: {
+    jit: true,
+  },
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ['@nuxtjs/axios'],
+  modules: ['@nuxtjs/axios', '@nuxtjs/apollo'],
   axios: {},
+  apollo: {
+    clientConfigs: {
+      default: '~/apollo/client-configs/default.js',
+    },
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
@@ -47,5 +59,7 @@ export default {
 
   env: {
     QIITA_API_ACCESS_TOKEN,
+    GITHUB_API_ACCESS_TOKEN1,
+    GITHUB_API_ACCESS_TOKEN2,
   },
 }

@@ -1,0 +1,31 @@
+{
+  viewer {
+    id
+    name
+    avatarUrl
+    organizations(last: 3) {
+      nodes {
+        id
+        name
+        avatarUrl
+        url
+      }
+    }
+    repositories(orderBy: { direction: ASC, field: PUSHED_AT }, last: 4) {
+      nodes {
+        id
+        name
+        description
+        languages(orderBy: { direction: DESC, field: SIZE }, last: 5) {
+          nodes {
+            id
+            name
+            color
+          }
+        }
+        url
+        updatedAt
+      }
+    }
+  }
+}
