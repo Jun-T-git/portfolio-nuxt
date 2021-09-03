@@ -97,7 +97,6 @@ export default defineComponent({
           },
         }
       )
-      console.log(res)
       state.posts = res.data
     }
 
