@@ -1,0 +1,35 @@
+query ($userName: String!) {
+  user(login: $userName) {
+    id
+    name
+    avatarUrl
+    repositories(orderBy: { direction: ASC, field: PUSHED_AT }, last: 4) {
+      nodes {
+        id
+        name
+        description
+        languages(orderBy: { direction: DESC, field: SIZE }, last: 5) {
+          nodes {
+            id
+            name
+            color
+          }
+        }
+        url
+        updatedAt
+      }
+    }
+    contributionsCollection {
+      contributionCalendar {
+        totalContributions
+        weeks {
+          firstDay
+          contributionDays {
+            contributionCount
+            date
+          }
+        }
+      }
+    }
+  }
+}
