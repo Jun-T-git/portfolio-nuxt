@@ -55,14 +55,14 @@
           <img
             :src="user1.avatarUrl"
             class="h-10 w-10 object-cover rounded-full hover:opacity-70"
-            :class="{ 'opacity-40': !user1IsVisible }"
+            :class="{ 'opacity-30': !user1IsVisible }"
           />
         </button>
         <button v-on:click="changeUserIsVisible(2)">
           <img
             :src="user2.avatarUrl"
             class="h-10 w-10 object-cover rounded-full hover:opacity-70"
-            :class="{ 'opacity-40': !user2IsVisible }"
+            :class="{ 'opacity-30': !user2IsVisible }"
           />
         </button>
       </div>
