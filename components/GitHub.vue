@@ -38,7 +38,7 @@
           <div
             v-for="(day, di) in week.contributionDays"
             :key="day.date"
-            class="row-span-1 border min-h-[15px] sm:min-h-[20px]"
+            class="row-span-1 border min-h-[15px] sm:min-h-[20px] rounded"
             :style="{
               'background-color': orgColor(
                 day.contributionCount,
@@ -164,7 +164,7 @@ export default Vue.extend({
   },
   apollo: {
     user1: {
-      prefetch: false,
+      prefetch: true,
       query: githubUser,
       variables: {
         userName: 'Jun-T-git',
@@ -172,7 +172,7 @@ export default Vue.extend({
       update: (data: Response) => data.user,
     },
     user2: {
-      prefetch: false,
+      prefetch: true,
       query: githubUser,
       variables: {
         userName: 'JunTeraoka',
