@@ -123,6 +123,7 @@
 </template>
 
 <script lang="ts">
+import Vue from 'vue'
 import 'vue-apollo'
 import githubUser from '~/apollo/queries/githubUser.gql'
 import { User } from '~/types/github'
@@ -135,7 +136,7 @@ type Data = {
 }
 type Response = { user: User }
 
-export default {
+export default Vue.extend({
   data: (): Data => ({
     user1: null,
     user2: null,
@@ -143,12 +144,12 @@ export default {
     user2IsVisible: true,
   }),
   methods: {
-    orgColor: function (green: number, red: number) {
+    orgColor: function (green: number, red: number): String {
       const g = green != 0 && this.user1IsVisible ? green * 5 + 125 : 100
       const r = red != 0 && this.user2IsVisible ? red * 5 + 125 : 100
       return `rgb(${r},${g}, 100)`
     },
-    changeUserIsVisible: function (userNum: number) {
+    changeUserIsVisible: function (userNum: number): void {
       if (userNum == 1) {
         this.user1IsVisible = !this.user1IsVisible
       } else if (userNum == 2) {
@@ -179,5 +180,5 @@ export default {
       update: (data: Response) => data.user,
     },
   },
-}
+})
 </script>
