@@ -3,49 +3,82 @@
     <h3 class="text-xl font-semibold text-center my-2">Accounts</h3>
     <div v-if="user1 && user2" class="flex justify-center gap-x-10">
       <div v-for="user in users" :key="user.id">
-        <img
-          :src="user.avatarUrl"
-          class="
-            h-14
-            w-14
-            sm:h-20 sm:w-20
-            object-cover
-            rounded-full
-            mx-auto
-            mb-1
-          "
-        />
+        <a :href="user.url" target="_blank" rel="noopener noreferrer">
+          <img
+            :src="user.avatarUrl"
+            class="
+              h-14
+              w-14
+              sm:h-20 sm:w-20
+              object-cover
+              rounded-full
+              mx-auto
+              mb-1
+            "
+          />
+        </a>
         <div class="text-center text-xs sm:text-sm">{{ user.name }}</div>
       </div>
     </div>
     <h3 class="text-xl font-semibold text-center mt-5 mb-2">Activities</h3>
-    <div
-      v-if="user1 && user2"
-      class="grid grid-cols-[23] grid-rows-7 grid-flow-col max-w-lg mx-auto"
-    >
+    <div v-if="user1 && user2">
       <div
-        v-for="(
-          week, wi
-        ) in users[0].contributionsCollection.contributionCalendar.weeks.slice(
-          30,
-          users[0].contributionsCollection.contributionCalendar.weeks.length
-        )"
-        :key="week.firstDay"
-        class="col-span-1"
+        class="grid grid-cols-[23] grid-rows-7 grid-flow-col max-w-lg mx-auto"
       >
         <div
-          v-for="(day, di) in week.contributionDays"
-          :key="day.date"
-          class="row-span-1 border min-h-[15px] sm:min-h-[20px]"
-          :style="{
-            'background-color': orgColor(
-              users[1].contributionsCollection.contributionCalendar.weeks[
-                wi + 30
-              ].contributionDays[di].contributionCount,
-              day.contributionCount
-            ),
-          }"
-        ></div>
+          v-for="(
+            week, wi
+          ) in users[0].contributionsCollection.contributionCalendar.weeks.slice(
+            30,
+            users[0].contributionsCollection.contributionCalendar.weeks.length
+          )"
+          :key="week.firstDay"
+          class="col-span-1"
+        >
+          <div
+            v-for="(day, di) in week.contributionDays"
+            :key="day.date"
+            class="row-span-1 border min-h-[15px] sm:min-h-[20px]"
+            :style="{
+              'background-color': orgColor(
+                day.contributionCount,
+                users[1].contributionsCollection.contributionCalendar.weeks[
+                  wi + 30
+                ].contributionDays[di].contributionCount
+              ),
+            }"
+          ></div>
+        </div>
+      </div>
+      <div class="flex justify-center gap-x-5 mt-2">
+        <button v-on:click="changeUserIsVisible(1)">
+          <img
+            :src="user1.avatarUrl"
+            class="
+              h-5
+              w-5
+              sm:h-10 sm:w-10
+              object-cover
+              rounded-full
+              hover:opacity-70
+            "
+            :class="{ 'opacity-40': !user1IsVisible }"
+          />
+        </button>
+        <button v-on:click="changeUserIsVisible(2)">
+          <img
+            :src="user2.avatarUrl"
+            class="
+              h-5
+              w-5
+              sm:h-10 sm:w-10
+              object-cover
+              rounded-full
+              hover:opacity-70
+            "
+            :class="{ 'opacity-40': !user2IsVisible }"
+          />
+        </button>
       </div>
     </div>
     <h3 class="text-xl font-semibold text-center mt-5 mb-2">
@@ -94,19 +127,33 @@ import 'vue-apollo'
 import githubUser from '~/apollo/queries/githubUser.gql'
 import { User } from '~/types/github'
 
-type Data = { user1: User | null; user2: User | null }
+type Data = {
+  user1: User | null
+  user2: User | null
+  user1IsVisible: boolean
+  user2IsVisible: boolean
+}
 type Response = { user: User }
 
 export default {
   data: (): Data => ({
     user1: null,
     user2: null,
+    user1IsVisible: true,
+    user2IsVisible: true,
   }),
   methods: {
-    orgColor: (red: number, green: number) => {
-      const r = red != 0 ? red * 5 + 125 : 100
-      const g = green != 0 ? green * 5 + 125 : 100
+    orgColor: function (green: number, red: number) {
+      const g = green != 0 && this.user1IsVisible ? green * 5 + 125 : 100
+      const r = red != 0 && this.user2IsVisible ? red * 5 + 125 : 100
       return `rgb(${r},${g}, 100)`
+    },
+    changeUserIsVisible: function (userNum: number) {
+      if (userNum == 1) {
+        this.user1IsVisible = !this.user1IsVisible
+      } else if (userNum == 2) {
+        this.user2IsVisible = !this.user2IsVisible
+      }
     },
   },
   computed: {
