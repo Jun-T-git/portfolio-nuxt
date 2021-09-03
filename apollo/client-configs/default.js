@@ -6,7 +6,7 @@ export default () => {
   const httpLink = new HttpLink({ uri: 'https://api.github.com/graphql' })
 
   // auth token
-  const token = process.env.GITHUB_API_ACCESS_TOKEN1
+  const token = process.env.GITHUB_API_ACCESS_TOKEN
 
   // middleware
   const middlewareLink = new ApolloLink((operation, forward) => {
