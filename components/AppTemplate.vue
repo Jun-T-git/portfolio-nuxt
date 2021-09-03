@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-200">
+  <div class="bg-[#fcf0ee]">
     <h1 class="text-3xl sm:text-5xl font-bold text-center pb-10 pt-16">
       Jun's Portfolio
     </h1>
