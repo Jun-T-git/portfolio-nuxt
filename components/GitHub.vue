@@ -50,32 +50,18 @@
           ></div>
         </div>
       </div>
-      <div class="flex justify-center gap-x-5 mt-2">
+      <div class="flex justify-center gap-x-10 mt-2">
         <button v-on:click="changeUserIsVisible(1)">
           <img
             :src="user1.avatarUrl"
-            class="
-              h-5
-              w-5
-              sm:h-10 sm:w-10
-              object-cover
-              rounded-full
-              hover:opacity-70
-            "
+            class="h-10 w-10 object-cover rounded-full hover:opacity-70"
             :class="{ 'opacity-40': !user1IsVisible }"
           />
         </button>
         <button v-on:click="changeUserIsVisible(2)">
           <img
             :src="user2.avatarUrl"
-            class="
-              h-5
-              w-5
-              sm:h-10 sm:w-10
-              object-cover
-              rounded-full
-              hover:opacity-70
-            "
+            class="h-10 w-10 object-cover rounded-full hover:opacity-70"
             :class="{ 'opacity-40': !user2IsVisible }"
           />
         </button>
