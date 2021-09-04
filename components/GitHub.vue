@@ -72,7 +72,7 @@
     </h3>
     <div v-if="user1 && user2" class="w-full space-y-3">
       <div
-        v-for="repo in users[0].repositories.nodes"
+        v-for="repo in users[0].repositories.nodes.slice(0, repoNum)"
         :key="repo.id"
         class="
           bg-white
@@ -104,6 +104,15 @@
           </div>
         </a>
       </div>
+      <div class="text-center">
+        <button
+          v-if="repoNum < users[0].repositories.nodes.length"
+          v-on:click="showMore()"
+          class="text-blue-500 text-sm"
+        >
+          Show More
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -119,6 +128,7 @@ type Data = {
   user2: User | null
   user1IsVisible: boolean
   user2IsVisible: boolean
+  repoNum: number
 }
 type Response = { user: User }
 
@@ -128,6 +138,7 @@ export default Vue.extend({
     user2: null,
     user1IsVisible: true,
     user2IsVisible: true,
+    repoNum: 4,
   }),
   methods: {
     orgColor: function (green: number, red: number): String {
@@ -141,6 +152,9 @@ export default Vue.extend({
       } else if (userNum == 2) {
         this.user2IsVisible = !this.user2IsVisible
       }
+    },
+    showMore: function (): void {
+      this.repoNum += 6
     },
   },
   computed: {

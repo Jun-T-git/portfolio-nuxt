@@ -4,7 +4,7 @@ query ($userName: String!) {
     name
     avatarUrl
     url
-    repositories(orderBy: { direction: ASC, field: PUSHED_AT }, last: 4) {
+    repositories(orderBy: { direction: DESC, field: PUSHED_AT }, last: 100) {
       nodes {
         id
         name
