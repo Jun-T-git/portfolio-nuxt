@@ -2,9 +2,9 @@
 <template>
   <div>
     <h3 class="text-xl font-semibold text-center mt-5 mb-2">Recent Posts</h3>
-    <div v-if="state.posts.length" class="w-full space-y-3">
+    <div v-if="state.posts.length" class="w-full space-y-3 text-center">
       <div
-        v-for="post in state.posts.slice(0, nbPosts)"
+        v-for="post in state.posts.slice(0, state.postNum)"
         :key="post.id"
         class="
           bg-white
@@ -51,6 +51,13 @@
           </div>
         </a>
       </div>
+      <button
+        v-if="state.postNum < state.posts.length"
+        v-on:click="showMore()"
+        class="text-blue-500 text-sm"
+      >
+        Show More
+      </button>
     </div>
   </div>
 </template>
@@ -67,26 +74,15 @@ import axios from 'axios'
 
 type State = {
   posts: Post[]
-}
-
-type Props = {
   postNum: number
 }
 
 export default defineComponent({
-  props: {
-    postNum: {
-      default: 4,
-      required: false,
-    },
-  },
-
-  setup(props: Props) {
+  setup() {
     const state = reactive<State>({
       posts: [],
+      postNum: 4,
     })
-
-    const nbPosts = computed(() => Math.min(props.postNum, state.posts.length))
 
     const fetchQiitaPosts = async () => {
       const res = await axios.get(
@@ -100,14 +96,17 @@ export default defineComponent({
       state.posts = res.data
     }
 
+    const showMore = () => {
+      state.postNum += 6
+    }
+
     onMounted(async () => {
       await fetchQiitaPosts()
     })
 
     return {
       state,
-      nbPosts,
-      fetchQiitaPosts,
+      showMore,
     }
   },
 })
