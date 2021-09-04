@@ -2,7 +2,7 @@
 <template>
   <div>
     <h3 class="text-xl font-semibold text-center mt-5 mb-2">Recent Posts</h3>
-    <div v-if="state.posts.length" class="w-full space-y-3 text-center">
+    <div v-if="state.posts.length" class="w-full space-y-3">
       <div
         v-for="post in state.posts.slice(0, state.postNum)"
         :key="post.id"
@@ -51,13 +51,15 @@
           </div>
         </a>
       </div>
-      <button
-        v-if="state.postNum < state.posts.length"
-        v-on:click="showMore()"
-        class="text-blue-500 text-sm"
-      >
-        Show More
-      </button>
+      <div class="text-center">
+        <button
+          v-if="state.postNum < state.posts.length"
+          v-on:click="showMore()"
+          class="text-blue-500 text-sm"
+        >
+          Show More
+        </button>
+      </div>
     </div>
   </div>
 </template>
