@@ -6,3 +6,12 @@ export type User = {
   repositories: Object
   contributionsCollection: Object
 }
+
+export type Repository = {
+  id: String
+  name: String
+  description: String
+  languages: Object
+  url: String
+  updatedAt: String
+}
