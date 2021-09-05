@@ -15,41 +15,7 @@
           hover:opacity-70
         "
       >
-        <a :href="post.url" target="_blank" rel="noopener noreferrer">
-          <div class="sm:flex sm:justify-between sm:align-top">
-            <h4 class="text-base sm:text-lg font-semibold">
-              {{ post.title }}
-            </h4>
-            <span class="text-xs text-gray-500">{{
-              post.created_at.substr(0, 10)
-            }}</span>
-          </div>
-          <div class="sm:flex sm:justify-between mt-2">
-            <div class="flex flex-wrap gap-2">
-              <span
-                v-for="tag in post.tags"
-                :key="tag.name"
-                class="rounded bg-blue-200 px-2 py-0.5 text-xs sm:text-sm"
-              >
-                {{ tag.name }}
-              </span>
-            </div>
-            <span
-              class="
-                rounded
-                bg-green-500
-                text-white text-center
-                w-24
-                px-2
-                py-0.5
-                text-xs
-                sm:text-sm
-              "
-            >
-              {{ post.likes_count }} LGTM
-            </span>
-          </div>
-        </a>
+        <QiitaPost :post="post" />
       </div>
       <div class="text-center">
         <button
@@ -65,13 +31,9 @@
 </template>
 
 <script lang="ts">
+import QiitaPost from '~/components/QiitaPost.vue'
 import { Post } from '~/types/qiita'
-import {
-  defineComponent,
-  reactive,
-  onMounted,
-  computed,
-} from '@vue/composition-api'
+import { defineComponent, reactive, onMounted } from '@vue/composition-api'
 import axios from 'axios'
 
 type State = {
@@ -80,6 +42,7 @@ type State = {
 }
 
 export default defineComponent({
+  components: { QiitaPost },
   setup() {
     const state = reactive<State>({
       posts: [],

@@ -22,50 +22,7 @@
     </div>
     <h3 class="text-xl font-semibold text-center mt-5 mb-2">Activities</h3>
     <div v-if="user1 && user2">
-      <div
-        class="grid grid-cols-[23] grid-rows-7 grid-flow-col max-w-lg mx-auto"
-      >
-        <div
-          v-for="(
-            week, wi
-          ) in users[0].contributionsCollection.contributionCalendar.weeks.slice(
-            30,
-            users[0].contributionsCollection.contributionCalendar.weeks.length
-          )"
-          :key="week.firstDay"
-          class="col-span-1"
-        >
-          <div
-            v-for="(day, di) in week.contributionDays"
-            :key="day.date"
-            class="row-span-1 border min-h-[15px] sm:min-h-[20px] rounded"
-            :style="{
-              'background-color': orgColor(
-                day.contributionCount,
-                users[1].contributionsCollection.contributionCalendar.weeks[
-                  wi + 30
-                ].contributionDays[di].contributionCount
-              ),
-            }"
-          ></div>
-        </div>
-      </div>
-      <div class="flex justify-center gap-x-10 mt-2">
-        <button v-on:click="changeUserIsVisible(1)">
-          <img
-            :src="user1.avatarUrl"
-            class="h-10 w-10 object-cover rounded-full sm:hover:opacity-70"
-            :class="{ 'opacity-30': !user1IsVisible }"
-          />
-        </button>
-        <button v-on:click="changeUserIsVisible(2)">
-          <img
-            :src="user2.avatarUrl"
-            class="h-10 w-10 object-cover rounded-full sm:hover:opacity-70"
-            :class="{ 'opacity-30': !user2IsVisible }"
-          />
-        </button>
-      </div>
+      <GitHubActivities :userList="users" />
     </div>
     <h3 class="text-xl font-semibold text-center mt-5 mb-2">
       Recent Repositories
@@ -83,26 +40,7 @@
           hover:opacity-70
         "
       >
-        <a :href="repo.url" target="_blank" rel="noopener noreferrer">
-          <div class="sm:flex sm:justify-between sm:align-top">
-            <h4 class="text-base sm:text-lg font-semibold">
-              {{ repo.name }}
-            </h4>
-            <span class="text-xs text-gray-500"
-              >last update {{ repo.updatedAt.substr(0, 10) }}</span
-            >
-          </div>
-          <p class="text-sm text-gray-700">{{ repo.description }}</p>
-          <div class="flex flex-wrap gap-2">
-            <span
-              v-for="lang in repo.languages.nodes"
-              :key="lang.id"
-              class="py-0.5 text-xs sm:text-sm"
-              ><span class="px-0.5" :style="{ color: lang.color }">●</span
-              >{{ lang.name }}</span
-            >
-          </div>
-        </a>
+        <GitHubRepository :repository="repo" />
       </div>
       <div class="text-center">
         <button
@@ -126,8 +64,6 @@ import { User } from '~/types/github'
 type Data = {
   user1: User | null
   user2: User | null
-  user1IsVisible: boolean
-  user2IsVisible: boolean
   repoNum: number
 }
 type Response = { user: User }
@@ -136,23 +72,9 @@ export default Vue.extend({
   data: (): Data => ({
     user1: null,
     user2: null,
-    user1IsVisible: true,
-    user2IsVisible: true,
     repoNum: 4,
   }),
   methods: {
-    orgColor: function (green: number, red: number): String {
-      const g = green != 0 && this.user1IsVisible ? green * 5 + 125 : 100
-      const r = red != 0 && this.user2IsVisible ? red * 5 + 125 : 100
-      return `rgb(${r},${g}, 100)`
-    },
-    changeUserIsVisible: function (userNum: number): void {
-      if (userNum == 1) {
-        this.user1IsVisible = !this.user1IsVisible
-      } else if (userNum == 2) {
-        this.user2IsVisible = !this.user2IsVisible
-      }
-    },
     showMore: function (): void {
       this.repoNum += 6
     },
