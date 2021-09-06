@@ -14,7 +14,13 @@
         <div
           v-for="(day, di) in week.contributionDays"
           :key="day.date"
-          class="row-span-1 border min-h-[15px] sm:min-h-[20px] rounded"
+          class="
+            row-span-1
+            border border-[#fcf0ee]
+            min-h-[15px]
+            sm:min-h-[20px]
+            rounded
+          "
           :style="{
             'background-color': orgColor(
               users[1].contributionsCollection.contributionCalendar.weeks[
@@ -68,17 +74,17 @@ export default Vue.extend({
     ): String {
       const r =
         red != 0 && this.users.length >= 1 && this.usersIsVisible[1]
-          ? red * 5 + 125
-          : 100
+          ? red * 5 + 50
+          : 0
       const g =
         green != 0 && this.users.length >= 2 && this.usersIsVisible[0]
-          ? green * 5 + 125
-          : 100
+          ? green * 5 + 50
+          : 0
       const b =
         blue != 0 && this.users.length >= 3 && this.usersIsVisible[2]
-          ? blue * 5 + 125
-          : 100
-      return `rgb(${r}, ${g}, ${b})`
+          ? blue * 5 + 50
+          : 0
+      return `rgb(${220 + r - g - b}, ${220 + g - b - r}, ${220 + b - r - g})`
     },
     changeUserIsVisible: function (userIndex: number): void {
       const newUsersIsVisible = this.usersIsVisible.slice(
