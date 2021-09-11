@@ -74,17 +74,17 @@ export default Vue.extend({
     ): String {
       const r =
         red != 0 && this.users.length >= 1 && this.usersIsVisible[1]
-          ? red * 5 + 50
+          ? red * 5 + 20
           : 0
       const g =
         green != 0 && this.users.length >= 2 && this.usersIsVisible[0]
-          ? green * 5 + 50
+          ? green * 5 + 20
           : 0
       const b =
         blue != 0 && this.users.length >= 3 && this.usersIsVisible[2]
-          ? blue * 5 + 50
+          ? blue * 5 + 20
           : 0
-      return `rgb(${220 + r - g - b}, ${220 + g - b - r}, ${220 + b - r - g})`
+      return `rgb(${190 + r - g - b}, ${190 + g - b - r}, ${190 + b - r - g})`
     },
     changeUserIsVisible: function (userIndex: number): void {
       const newUsersIsVisible = this.usersIsVisible.slice(
