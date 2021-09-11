@@ -17,7 +17,7 @@ query ($userName: String!) {
           }
         }
         url
-        updatedAt
+        pushedAt
       }
     }
     contributionsCollection {

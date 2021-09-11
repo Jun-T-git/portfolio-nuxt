@@ -5,7 +5,7 @@
         {{ repo.name }}
       </h4>
       <span class="text-xs text-gray-500"
-        >last update {{ repo.updatedAt.substr(0, 10) }}</span
+        >last update {{ repo.pushedAt.substr(0, 10) }}</span
       >
     </div>
     <p class="text-sm text-gray-700">{{ repo.description }}</p>
