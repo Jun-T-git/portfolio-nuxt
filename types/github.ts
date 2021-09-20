@@ -12,6 +12,7 @@ export type Repository = {
   name: String
   description: String
   languages: Object
+  isPrivate: boolean
   url: String
   updatedAt: String
 }
