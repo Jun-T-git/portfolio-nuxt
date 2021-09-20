@@ -1,8 +1,14 @@
 <template>
   <a :href="repo.url" target="_blank" rel="noopener noreferrer">
     <div class="sm:flex sm:justify-between sm:align-top">
-      <h4 class="text-base sm:text-lg font-semibold">
-        {{ repo.name }}
+      <h4 class="text-base sm:text-lg font-semibold flex">
+        {{ repo.name
+        }}<img
+          src="../images/private.svg"
+          alt="locksmith"
+          width="13px"
+          :class="repo.isPrivate ? 'mx-2' : 'hidden'"
+        />
       </h4>
       <span class="text-xs text-gray-500"
         >last update {{ repo.pushedAt.substr(0, 10) }}</span

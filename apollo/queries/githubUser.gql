@@ -16,6 +16,7 @@ query ($userName: String!) {
             color
           }
         }
+        isPrivate
         url
         pushedAt
       }
