@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div v-if="user1 && user2">
     <h3 class="text-xl font-semibold text-center my-2">Accounts</h3>
-    <div v-if="user1 && user2" class="flex justify-center gap-x-10">
+    <div class="flex justify-center gap-x-10">
       <div v-for="user in users" :key="user.id">
         <a :href="user.url" target="_blank" rel="noopener noreferrer">
           <img
@@ -20,33 +20,24 @@
         <div class="text-center text-xs sm:text-sm">{{ user.name }}</div>
       </div>
     </div>
-    <h3 class="text-xl font-semibold text-center mt-5 mb-2">Activities</h3>
-    <div v-if="user1 && user2">
-      <GitHubActivities :userList="users" />
+    <div class="my-5">
+      <h3 class="text-xl font-semibold text-center mt-5 mb-2">
+        Recent Activities
+      </h3>
+      <git-hub-activities :user-list="users" />
     </div>
-    <h3 class="text-xl font-semibold text-center mt-5 mb-2">
-      Recent Repositories
-    </h3>
-    <div v-if="user1 && user2" class="w-full space-y-3">
-      <div
+    <h3 class="text-xl font-semibold text-center mt-5 mb-2">Repositories</h3>
+    <div class="w-full space-y-3">
+      <git-hub-repository
         v-for="repo in users[0].repositories.nodes.slice(0, repoNum)"
         :key="repo.id"
-        class="
-          bg-white
-          overflow-hidden
-          shadow
-          sm:rounded-lg
-          p-5
-          hover:opacity-70
-        "
-      >
-        <GitHubRepository :repository="repo" />
-      </div>
+        :repository="repo"
+      />
       <div class="text-center">
         <button
           v-if="repoNum < users[0].repositories.nodes.length"
-          v-on:click="showMore()"
           class="text-blue-500 text-sm"
+          @click="showMore()"
         >
           Show More
         </button>
@@ -58,6 +49,8 @@
 <script lang="ts">
 import Vue from 'vue'
 import 'vue-apollo'
+import GitHubActivities from './GitHubActivities.vue'
+import GitHubRepository from './GitHubRepository.vue'
 import githubUser from '~/apollo/queries/githubUser.gql'
 import { User } from '~/types/github'
 
@@ -69,19 +62,20 @@ type Data = {
 type Response = { user: User }
 
 export default Vue.extend({
+  components: { GitHubActivities, GitHubRepository },
   data: (): Data => ({
     user1: null,
     user2: null,
     repoNum: 4,
   }),
-  methods: {
-    showMore: function (): void {
-      this.repoNum += 6
+  computed: {
+    users(): Array<User | null> {
+      return [this.user1, this.user2]
     },
   },
-  computed: {
-    users: function (): Array<User | null> {
-      return [this.user1, this.user2]
+  methods: {
+    showMore(): void {
+      this.repoNum += 6
     },
   },
   apollo: {

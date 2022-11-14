@@ -32,18 +32,41 @@
         />
       </div>
     </div>
-    <div class="flex justify-center gap-x-10 mt-2">
-      <button
-        v-on:click="changeUserIsVisible(ui)"
-        v-for="(user, ui) in users"
-        :key="user.id"
-      >
-        <img
-          :src="user.avatarUrl"
-          class="h-10 w-10 object-cover rounded-full sm:hover:opacity-70"
-          :class="{ 'opacity-30': !usersIsVisible[ui] }"
-        />
-      </button>
+    <div
+      class="flex items-center gap-x-7 max-w-lg mx-auto justify-end mt-2 px-1"
+    >
+      <span class="text-gray-400">Toggle Me!</span>
+      <div class="flex items-center gap-x-8">
+        <button
+          v-for="(user, ui) in users"
+          :key="user.id"
+          class="flex items-center"
+          @click="changeUserIsVisible(ui)"
+        >
+          <div
+            class="h-3 w-10 rounded-lg border border-gray-300"
+            :class="{
+              'bg-gray-400': !usersIsVisible[ui],
+              'bg-[#aaffaa]': usersIsVisible[ui] && ui == 0,
+              'bg-[#ffaa55]': usersIsVisible[ui] && ui == 1,
+            }"
+          />
+          <img
+            :src="user.avatarUrl"
+            class="
+              h-10
+              w-10
+              object-cover
+              rounded-full
+              shadow-lg
+              border
+              -ml-5
+              transition
+            "
+            :class="{ '-translate-x-10': !usersIsVisible[ui] }"
+          />
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -51,7 +74,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import 'vue-apollo'
-import { PropType } from '@vue/composition-api'
+import type { PropType } from '@vue/composition-api'
 import { User } from '~/types/github'
 
 type Data = { users: User[]; usersIsVisible: Boolean[] }
@@ -60,33 +83,29 @@ export default Vue.extend({
   props: {
     userList: { type: Array as PropType<User[]>, required: true },
   },
-  data: function (): Data {
+  data(): Data {
     return {
       users: this.userList,
       usersIsVisible: new Array(this.userList.length).fill(true),
     }
   },
   methods: {
-    orgColor: function (
-      red: number = 0,
-      green: number = 0,
-      blue: number = 0
-    ): String {
+    orgColor(red: number = 0, green: number = 0, blue: number = 0): String {
       const r =
-        red != 0 && this.users.length >= 1 && this.usersIsVisible[1]
+        red !== 0 && this.users.length >= 1 && this.usersIsVisible[1]
           ? red * 5 + 20
           : 0
       const g =
-        green != 0 && this.users.length >= 2 && this.usersIsVisible[0]
+        green !== 0 && this.users.length >= 2 && this.usersIsVisible[0]
           ? green * 5 + 20
           : 0
       const b =
-        blue != 0 && this.users.length >= 3 && this.usersIsVisible[2]
+        blue !== 0 && this.users.length >= 3 && this.usersIsVisible[2]
           ? blue * 5 + 20
           : 0
       return `rgb(${190 + r - g - b}, ${190 + g - b - r}, ${190 + b - r - g})`
     },
-    changeUserIsVisible: function (userIndex: number): void {
+    changeUserIsVisible(userIndex: number): void {
       const newUsersIsVisible = this.usersIsVisible.slice(
         0,
         this.usersIsVisible.length

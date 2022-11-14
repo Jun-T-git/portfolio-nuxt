@@ -1,14 +1,22 @@
 <template>
-  <a :href="repo.url" target="_blank" rel="noopener noreferrer">
+  <a
+    v-if="!repo.isPrivate"
+    :href="repo.url"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="
+      bg-white
+      overflow-hidden
+      shadow
+      sm:rounded-lg
+      p-5
+      hover:opacity-70
+      block
+    "
+  >
     <div class="sm:flex sm:justify-between sm:align-top">
       <h4 class="text-base sm:text-lg font-semibold flex">
-        {{ repo.name
-        }}<img
-          src="../images/private.svg"
-          alt="locksmith"
-          width="13px"
-          :class="repo.isPrivate ? 'mx-2' : 'hidden'"
-        />
+        {{ repo.name }}
       </h4>
       <span class="text-xs text-gray-500"
         >last update {{ repo.pushedAt.substr(0, 10) }}</span
@@ -29,8 +37,8 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import type { PropType } from '@vue/composition-api'
 import { Repository } from '~/types/github'
-import { PropType } from '@vue/composition-api'
 
 export default Vue.extend({
   props: {
@@ -39,7 +47,7 @@ export default Vue.extend({
       required: true,
     },
   },
-  data: function () {
+  data() {
     return { repo: this.repository }
   },
 })

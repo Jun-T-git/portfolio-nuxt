@@ -1,5 +1,18 @@
 <template>
-  <a :href="props.post.url" target="_blank" rel="noopener noreferrer">
+  <a
+    :href="props.post.url"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="
+      bg-white
+      overflow-hidden
+      shadow
+      sm:rounded-lg
+      p-5
+      hover:opacity-70
+      block
+    "
+  >
     <div class="sm:flex sm:justify-between sm:align-top">
       <h4 class="text-base sm:text-lg font-semibold">
         {{ props.post.title }}
@@ -37,8 +50,9 @@
 </template>
 
 <script lang="ts">
+import { defineComponent } from '@vue/composition-api'
+import type { PropType } from '@vue/composition-api'
 import { Post } from '~/types/qiita'
-import { defineComponent, PropType } from '@vue/composition-api'
 
 type Props = {
   post: Post

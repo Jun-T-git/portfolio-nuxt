@@ -44,8 +44,8 @@
 
 <script lang="ts">
 import { defineComponent } from '@vue/composition-api'
-import Qiita from './Qiita.vue'
-import GitHub from './GitHub.vue'
+import GitHub from '@/components/github/GitHub.vue'
+import Qiita from '~/components/qiita/Qiita.vue'
 export default defineComponent({
   components: { Qiita, GitHub },
 })
