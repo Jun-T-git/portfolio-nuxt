@@ -18,6 +18,11 @@
         </div>
 
         <section>
+          <heading-2>Works</heading-2>
+          <works class="pt-4" />
+        </section>
+
+        <section>
           <heading-2>Skills</heading-2>
           <skills class="pt-5" />
         </section>
@@ -49,6 +54,7 @@ import GithubRepositories from '~/components/github/Repositories.vue'
 import QiitaPosts from '~/components/qiita/Posts.vue'
 import Heading2 from '~/components/text/heading2.vue'
 import Heading3 from '~/components/text/heading3.vue'
+import Works from '~/components/work/Works.vue'
 Vue.config.devtools = true
 
 type Data = {
@@ -66,6 +72,7 @@ export default Vue.extend({
     QiitaPosts,
     Heading2,
     Heading3,
+    Works,
   },
   data: (): Data => ({
     user1: null,
