@@ -1,21 +1,12 @@
 <template>
   <a
-    v-if="!repo.isPrivate"
     :href="repo.url"
     target="_blank"
     rel="noopener noreferrer"
-    class="
-      bg-white
-      overflow-hidden
-      shadow
-      sm:rounded-lg
-      p-5
-      hover:opacity-70
-      block
-    "
+    class="block overflow-hidden bg-white p-5 shadow hover:bg-gray-100 sm:rounded-lg"
   >
     <div class="sm:flex sm:justify-between sm:align-top">
-      <h4 class="text-base sm:text-lg font-semibold flex">
+      <h4 class="flex text-base font-semibold sm:text-lg">
         {{ repo.name }}
       </h4>
       <span class="text-xs text-gray-500"

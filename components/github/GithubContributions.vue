@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div class="grid grid-cols-[23] grid-rows-7 grid-flow-col max-w-lg mx-auto">
+  <div v-if="users && users.length > 0">
+    <div class="grid-rows-7 mx-auto grid max-w-lg grid-flow-col grid-cols-[23]">
       <div
         v-for="(
           week, wi
@@ -14,13 +14,7 @@
         <div
           v-for="(day, di) in week.contributionDays"
           :key="day.date"
-          class="
-            row-span-1
-            border border-[#fcf0ee]
-            min-h-[15px]
-            sm:min-h-[20px]
-            rounded
-          "
+          class="row-span-1 min-h-[15px] rounded border border-[#fcf0ee] sm:min-h-[20px]"
           :style="{
             'background-color': orgColor(
               users[1].contributionsCollection.contributionCalendar.weeks[
@@ -33,7 +27,7 @@
       </div>
     </div>
     <div
-      class="flex items-center gap-x-7 max-w-lg mx-auto justify-end mt-2 px-1"
+      class="mx-auto mt-2 flex max-w-lg items-center justify-end gap-x-7 px-1"
     >
       <span class="text-gray-400">Toggle Me!</span>
       <div class="flex items-center gap-x-8">
@@ -53,16 +47,7 @@
           />
           <img
             :src="user.avatarUrl"
-            class="
-              h-10
-              w-10
-              object-cover
-              rounded-full
-              shadow-lg
-              border
-              -ml-5
-              transition
-            "
+            class="will-change-transform -ml-5 h-10 w-10 rounded-full border object-cover shadow-lg transition"
             :class="{ '-translate-x-10': !usersIsVisible[ui] }"
           />
         </button>
@@ -73,20 +58,18 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import 'vue-apollo'
 import type { PropType } from '@vue/composition-api'
 import { User } from '~/types/github'
 
-type Data = { users: User[]; usersIsVisible: Boolean[] }
+type Data = { usersIsVisible: Boolean[] }
 
 export default Vue.extend({
   props: {
-    userList: { type: Array as PropType<User[]>, required: true },
+    users: { type: Array as PropType<User[]>, required: true },
   },
   data(): Data {
     return {
-      users: this.userList,
-      usersIsVisible: new Array(this.userList.length).fill(true),
+      usersIsVisible: new Array(this.users?.length).fill(true),
     }
   },
   methods: {
