@@ -35,10 +35,10 @@
 <script lang="ts">
 import Vue from 'vue'
 import 'vue-apollo'
-import GithubContributions from '~/components/github/GithubContributions.vue'
+import GithubContributions from '~/components/github/Contributions.vue'
 import githubUser from '~/apollo/queries/githubUser.gql'
 import { User } from '~/types/github'
-import GithubAccounts from '~/components/github/GithubAccounts.vue'
+import GithubAccounts from '~/components/github/Accounts.vue'
 import Skills from '~/components/skill/Skills.vue'
 import GithubRepositories from '~/components/github/GithubRepositories.vue'
 import QiitaPosts from '~/components/qiita/QiitaPosts.vue'

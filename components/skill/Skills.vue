@@ -44,7 +44,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import Skill from './Skill.vue'
+import Skill from './SkillCircle.vue'
 
 export default Vue.extend({
   components: { Skill },

@@ -23,7 +23,7 @@
 <script lang="ts">
 import { defineComponent, reactive, onMounted } from '@vue/composition-api'
 import axios from 'axios'
-import QiitaPost from '~/components/qiita/QiitaPost.vue'
+import QiitaPost from '~/components/qiita/Post.vue'
 import { Post } from '~/types/qiita'
 
 type State = {

@@ -23,7 +23,7 @@
 import Vue from 'vue'
 import 'vue-apollo'
 import type { PropType } from '@vue/composition-api'
-import GithubRepository from './GithubRepository.vue'
+import GithubRepository from './Repository.vue'
 import { User } from '~/types/github'
 
 type Data = {
