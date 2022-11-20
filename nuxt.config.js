@@ -38,7 +38,12 @@ export default {
         content: 'Jun-T. Software Engineer in Hiroshima, Japan.',
       },
       { hid: 'og:image', property: 'og:image', content: '/ogimage.png' },
-      { name: 'twitter:card', content: 'summary' },
+      { hid: 'twitter:card', name: 'twitter:card', content: 'summary' },
+      {
+        hid: 'twitter:image',
+        name: 'twitter:image',
+        content: '/ogimage.png',
+      },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },

@@ -6,7 +6,7 @@
     class="block overflow-hidden bg-white p-5 shadow hover:bg-gray-100 sm:rounded-lg"
   >
     <div class="sm:flex sm:justify-between sm:align-top">
-      <h4 class="text-base font-semibold sm:text-lg">
+      <h4 class="text-base font-semibold">
         {{ props.post.title }}
       </h4>
       <span class="text-xs text-gray-500">{{

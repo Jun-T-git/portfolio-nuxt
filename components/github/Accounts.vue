@@ -4,15 +4,7 @@
       <a :href="user.url" target="_blank" rel="noopener noreferrer">
         <img
           :src="user.avatarUrl"
-          class="
-            h-14
-            w-14
-            sm:h-20 sm:w-20
-            object-cover
-            rounded-full
-            mx-auto
-            mb-1
-          "
+          class="mx-auto mb-1 h-14 w-14 rounded-full border object-cover hover:border-green-500 sm:h-20 sm:w-20"
         />
       </a>
       <div class="text-center text-xs sm:text-sm">{{ user.name }}</div>
