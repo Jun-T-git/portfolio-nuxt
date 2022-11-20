@@ -20,7 +20,7 @@
       </li>
       <span class="text-gray-500">etc...</span>
     </ul>
-    <div class="flex items-center justify-end gap-x-5">
+    <div class="flex items-center justify-end gap-x-5 px-2">
       <div class="flex items-center gap-x-1.5">
         <span
           class="block h-2.5 w-8"
@@ -36,8 +36,9 @@
         <span>Hobby</span>
       </div>
     </div>
-    <span class="flex justify-end pt-2 text-xs text-gray-500"
-      >icons by <a target="_blank" href="https://icons8.com">Icons8</a></span
+    <span class="flex justify-end px-2 pt-2 text-xs text-gray-500"
+      >icons by
+      <a target="_blank" class="pl-1" href="https://icons8.com">Icons8</a></span
     >
   </div>
 </template>
