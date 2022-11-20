@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col items-center gap-2">
-    <div class="relative">
+    <div class="relative overflow-hidden">
       <level-circle :degree="degree" :color="color" />
       <img
         :src="src"

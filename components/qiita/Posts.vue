@@ -2,8 +2,12 @@
 <template>
   <div v-if="state.posts.length" class="w-full space-y-3">
     <ul class="space-y-3">
-      <template v-for="post in state.posts.slice(0, state.postNum)">
-        <li v-if="!post.private" :key="post.id">
+      <template
+        v-for="post in state.posts
+          .filter((post) => !post.private)
+          .slice(0, state.postNum)"
+      >
+        <li :key="post.id">
           <QiitaPost :post="post" />
         </li>
       </template>

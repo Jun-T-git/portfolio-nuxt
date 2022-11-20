@@ -18,7 +18,7 @@
       <li v-for="skill in subSkills" :key="skill.name">
         {{ skill.name }}
       </li>
-      etc...
+      <span class="text-gray-500">etc...</span>
     </ul>
     <div class="flex items-center justify-end gap-x-5">
       <div class="flex items-center gap-x-1.5">

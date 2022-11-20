@@ -66,6 +66,9 @@ export default Vue.extend({
     user1: null,
     user2: null,
   }),
+  head() {
+    return { title: 'Jun-T' }
+  },
   computed: {
     users(): Array<User | null> {
       return [this.user1, this.user2]
