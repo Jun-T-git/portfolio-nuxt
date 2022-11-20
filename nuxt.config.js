@@ -42,7 +42,16 @@ export default {
         property: 'og:image',
         content: 'https://portfolio-nuxt-inky.vercel.app/ogimage.png',
       },
-      { hid: 'twitter:card', name: 'twitter:card', content: 'summary' },
+      {
+        hid: 'twitter:card',
+        name: 'twitter:card',
+        content: 'summary_large_image',
+      },
+      {
+        hid: 'twitter:site',
+        name: 'twitter:site',
+        content: '@prrr_343',
+      },
       {
         hid: 'twitter:image',
         name: 'twitter:image',
