@@ -37,12 +37,16 @@ export default {
         property: 'og:description',
         content: 'Jun-T. Software Engineer in Hiroshima, Japan.',
       },
-      { hid: 'og:image', property: 'og:image', content: '/ogimage.png' },
+      {
+        hid: 'og:image',
+        property: 'og:image',
+        content: 'https://portfolio-nuxt-inky.vercel.app/ogimage.png',
+      },
       { hid: 'twitter:card', name: 'twitter:card', content: 'summary' },
       {
         hid: 'twitter:image',
         name: 'twitter:image',
-        content: '/ogimage.png',
+        content: 'https://portfolio-nuxt-inky.vercel.app/ogimage.png',
       },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
