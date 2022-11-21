@@ -15,7 +15,7 @@
     <ul
       class="my-5 flex flex-wrap gap-x-5 gap-y-1 border-4 border-dotted border-gray-400 py-5 px-5"
     >
-      <li v-for="skill in subSkills" :key="skill.name">
+      <li v-for="skill in subSkills" :key="skill.name" class="text-gray-700">
         {{ skill.name }}
       </li>
       <span class="text-gray-500">etc...</span>
