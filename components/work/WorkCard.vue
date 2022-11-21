@@ -1,6 +1,6 @@
 <template>
   <div class="relative overflow-hidden border bg-white p-5 pb-14 sm:rounded-lg">
-    <div class="sm:flex sm:justify-between sm:align-top">
+    <div class="flex justify-between align-top">
       <h4 class="text-base font-semibold sm:text-lg">{{ work.name }}</h4>
       <span class="text-xs text-gray-500">{{ work.createdAt }}</span>
     </div>

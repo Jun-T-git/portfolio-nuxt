@@ -92,7 +92,7 @@ export default Vue.extend({
           color: COLOR_HOBBY,
         },
         {
-          name: 'Ruby on Rails.js',
+          name: 'Ruby on Rails',
           src: '/skills/rails.png',
           degree: 120,
           color: COLOR_HOBBY,
