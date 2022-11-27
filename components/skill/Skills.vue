@@ -18,7 +18,7 @@
       <li v-for="skill in subSkills" :key="skill.name" class="text-gray-700">
         {{ skill.name }}
       </li>
-      <li class="text-gray-500">etc...</li>
+      <li class="text-gray-600">etc...</li>
     </ul>
     <div class="flex items-center justify-end gap-x-5 px-2">
       <div class="flex items-center gap-x-1.5">
@@ -36,7 +36,7 @@
         <span>Hobby</span>
       </div>
     </div>
-    <span class="flex justify-end px-2 pt-2 text-xs text-gray-500"
+    <span class="flex justify-end px-2 pt-2 text-xs text-gray-600"
       >icons by
       <a
         aria-label="Visit icons8"

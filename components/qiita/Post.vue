@@ -25,9 +25,10 @@
         </span>
       </div>
       <span
-        class="w-24 rounded bg-green-500 px-2 py-0.5 text-center text-xs text-white sm:text-sm"
+        class="flex w-24 items-center justify-end gap-x-1 px-2 py-0.5 text-xs text-gray-600 sm:text-sm"
       >
-        {{ props.post.likes_count }} LGTM
+        <img src="/activities/heart.png" alt="lgtm" width="16" height="16" />
+        <span>{{ props.post.likes_count }}</span>
       </span>
     </div>
   </a>

@@ -29,7 +29,6 @@
     <div
       class="mx-auto mt-2 flex max-w-lg items-center justify-end gap-x-7 px-1"
     >
-      <span class="text-gray-400">Toggle Me!</span>
       <div class="flex items-center gap-x-8">
         <button
           v-for="(user, ui) in users"
@@ -39,7 +38,7 @@
           @click="changeUserIsVisible(ui)"
         >
           <div
-            class="h-3 w-10 rounded-lg border border-gray-300"
+            class="z-0 h-3 w-10 rounded-lg border border-gray-300"
             :class="{
               'bg-gray-400': !usersIsVisible[ui],
               'bg-[#aaffaa]': usersIsVisible[ui] && ui == 0,
@@ -48,7 +47,7 @@
           />
           <img
             :src="user.avatarUrl"
-            class="will-change-transform -ml-5 h-10 w-10 rounded-full border object-cover shadow-lg transition"
+            class="will-change-transform z-10 -ml-5 h-10 w-10 rounded-full border object-cover shadow-lg transition"
             :class="{ '-translate-x-10': !usersIsVisible[ui] }"
             alt="avatar"
           />

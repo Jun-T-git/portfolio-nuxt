@@ -11,7 +11,7 @@
       <button
         v-if="repoNum < users[0].repositories.nodes.length"
         id="showMoreRepositories"
-        class="text-sm text-blue-500"
+        class="border-b border-dashed border-gray-600 text-sm text-gray-600 hover:border-green-600 hover:text-green-600"
         @click="showMore()"
       >
         Show More

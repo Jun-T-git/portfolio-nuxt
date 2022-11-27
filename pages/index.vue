@@ -36,7 +36,7 @@
         </section>
       </div>
     </main>
-    <footer class="py-2 text-center text-sm text-gray-500">
+    <footer class="py-2 text-center text-sm text-gray-600">
       &copy; 2021 Jun-T. All Rights Reserved.
     </footer>
   </div>

@@ -16,7 +16,7 @@
       <button
         v-if="state.postNum < state.posts.length"
         id="showMorePosts"
-        class="text-sm text-blue-500"
+        class="border-b border-dashed border-gray-600 text-sm text-gray-600 hover:border-green-600 hover:text-green-600"
         @click="showMore()"
       >
         Show More
