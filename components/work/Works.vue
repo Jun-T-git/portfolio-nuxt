@@ -24,7 +24,13 @@ export default Vue.extend({
         name: 'COM.PY',
         description: '組織内関係可視化アプリ（スマートフォン推奨）',
         url: 'https://compy.vercel.app/',
-        tags: ['Next.js', 'TypeScript', 'Design', 'Hackathon', 'Team Dev.'],
+        tags: [
+          'Next.js',
+          'TypeScript',
+          'UI/UX Design',
+          'Hackathon',
+          'Team Dev.',
+        ],
         createdAt: '2022-07',
         github: 'https://github.com/Jun-T-git/HackU.client',
       },
@@ -48,7 +54,7 @@ export default Vue.extend({
         description:
           '視聴者のコメントが発表者の画面上に表示されるプレゼンテーション補助ツール',
         url: 'https://slive-xi.vercel.app/',
-        tags: ['Next.js', 'TypeScript', 'Design', 'Personal Dev.'],
+        tags: ['Next.js', 'TypeScript', 'UI/UX Design', 'Personal Dev.'],
         createdAt: '2021-08',
         github: 'https://github.com/Jun-T-git/slive',
       },
