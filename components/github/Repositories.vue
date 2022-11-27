@@ -10,6 +10,7 @@
     <div class="text-center">
       <button
         v-if="repoNum < users[0].repositories.nodes.length"
+        id="showMoreRepositories"
         class="text-sm text-blue-500"
         @click="showMore()"
       >

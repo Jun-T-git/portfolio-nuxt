@@ -1,5 +1,6 @@
 <template>
   <a
+    aria-label="Visit the repository"
     :href="repo.url"
     target="_blank"
     rel="noopener noreferrer"

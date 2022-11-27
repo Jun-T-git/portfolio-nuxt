@@ -33,6 +33,7 @@
       <div class="flex items-center gap-x-8">
         <button
           v-for="(user, ui) in users"
+          :id="`toggleIsVisible${ui}`"
           :key="user.id"
           class="flex items-center"
           @click="changeUserIsVisible(ui)"
@@ -49,6 +50,7 @@
             :src="user.avatarUrl"
             class="will-change-transform -ml-5 h-10 w-10 rounded-full border object-cover shadow-lg transition"
             :class="{ '-translate-x-10': !usersIsVisible[ui] }"
+            alt="avatar"
           />
         </button>
       </div>

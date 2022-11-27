@@ -18,7 +18,7 @@
       <li v-for="skill in subSkills" :key="skill.name" class="text-gray-700">
         {{ skill.name }}
       </li>
-      <span class="text-gray-500">etc...</span>
+      <li class="text-gray-500">etc...</li>
     </ul>
     <div class="flex items-center justify-end gap-x-5 px-2">
       <div class="flex items-center gap-x-1.5">
@@ -38,7 +38,13 @@
     </div>
     <span class="flex justify-end px-2 pt-2 text-xs text-gray-500"
       >icons by
-      <a target="_blank" class="pl-1" href="https://icons8.com">Icons8</a></span
+      <a
+        aria-label="Visit icons8"
+        target="_blank"
+        class="pl-1"
+        href="https://icons8.com"
+        >Icons8</a
+      ></span
     >
   </div>
 </template>

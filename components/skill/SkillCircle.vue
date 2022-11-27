@@ -7,6 +7,7 @@
         class="pointer-events-none absolute top-5 left-5"
         height="72"
         width="72"
+        :alt="`logo-${name}`"
       />
     </div>
     <span>{{ name }}</span>

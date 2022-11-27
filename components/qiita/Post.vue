@@ -1,5 +1,6 @@
 <template>
   <a
+    aria-label="Visit the post"
     :href="props.post.url"
     target="_blank"
     rel="noopener noreferrer"

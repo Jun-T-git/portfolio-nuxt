@@ -1,7 +1,7 @@
 <template>
   <div class="relative overflow-hidden border bg-white p-5 pb-14 sm:rounded-lg">
     <div class="flex justify-between align-top">
-      <h4 class="text-base font-semibold sm:text-lg">{{ work.name }}</h4>
+      <h3 class="text-base font-semibold sm:text-lg">{{ work.name }}</h3>
       <span class="text-xs text-gray-500">{{ work.createdAt }}</span>
     </div>
     <p class="py-1 text-sm text-gray-700">
@@ -18,6 +18,7 @@
     </div>
     <div class="absolute bottom-5 flex flex-wrap gap-5 pt-2 text-gray-600">
       <a
+        aria-label="Visit the website"
         class="flex items-center gap-x-1 border-b border-dashed border-gray-600 text-xs hover:text-green-600"
         :href="work.url"
         target="_blank"
@@ -30,6 +31,7 @@
         />Visit Website</a
       >
       <a
+        aria-label="View the source code"
         class="flex items-center gap-x-1 border-b border-dashed border-gray-600 text-xs hover:text-green-600"
         :href="work.github"
         target="_blank"

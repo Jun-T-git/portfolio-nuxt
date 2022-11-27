@@ -15,6 +15,7 @@
     <div class="text-center">
       <button
         v-if="state.postNum < state.posts.length"
+        id="showMorePosts"
         class="text-sm text-blue-500"
         @click="showMore()"
       >
