@@ -83,21 +83,7 @@ export default {
   },
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [
-    '@nuxtjs/axios',
-    '@nuxtjs/apollo',
-    [
-      'nuxt-compress',
-      {
-        gzip: {
-          cache: true,
-        },
-        brotli: {
-          threshold: 10240,
-        },
-      },
-    ],
-  ],
+  modules: ['@nuxtjs/axios', '@nuxtjs/apollo'],
   axios: {},
   apollo: {
     clientConfigs: {
