@@ -22,7 +22,8 @@ export default Vue.extend({
     works: [
       {
         name: 'COM.PY',
-        description: '組織内関係可視化アプリ（スマートフォン推奨）',
+        description:
+          '組織内の繋がりを日本地図上で可視化し交流を促進するアプリ（スマートフォン推奨）',
         url: 'https://compy.vercel.app/',
         tags: [
           'Next.js',
@@ -52,7 +53,7 @@ export default Vue.extend({
       {
         name: 'SLive',
         description:
-          '視聴者のコメントが発表者の画面上に表示されるプレゼンテーション補助ツール',
+          '視聴者のコメントが発表者の画面上にリアルタイムに表示されるプレゼンテーション補助ツール',
         url: 'https://slive-xi.vercel.app/',
         tags: ['Next.js', 'TypeScript', 'UI/UX Design', 'Personal Dev.'],
         createdAt: '2021-08',
@@ -61,7 +62,7 @@ export default Vue.extend({
       {
         name: 'SOMeL',
         description:
-          '機械学習手法SOMを直感的に理解するためのデモサイト（PC推奨）',
+          '機械学習手法のひとつであるSOM（自己組織化マップ）を直感的に理解するためのデモサイト（PC推奨）',
         url: 'https://jun-t-git.github.io/somel/',
         tags: ['JavaScript', 'Machine Learning', 'SOM', 'Personal Dev.'],
         createdAt: '2019-11',
