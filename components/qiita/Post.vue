@@ -14,7 +14,7 @@
         props.post.created_at.substr(0, 10)
       }}</span>
     </div>
-    <div class="mt-2 sm:flex sm:justify-between">
+    <div class="mt-2 sm:flex sm:items-center sm:justify-between">
       <div class="flex flex-wrap gap-2">
         <span
           v-for="tag in props.post.tags"
@@ -24,12 +24,12 @@
           {{ tag.name }}
         </span>
       </div>
-      <span
-        class="flex w-24 items-center justify-end gap-x-1 px-2 py-0.5 text-xs text-gray-600 sm:text-sm"
+      <div
+        class="mt-2.5 flex items-center gap-x-1 text-xs text-gray-600 sm:mt-0 sm:justify-end sm:pt-0.5 sm:text-sm"
       >
         <img src="/activities/heart.png" alt="lgtm" width="16" height="16" />
-        <span>{{ props.post.likes_count }}</span>
-      </span>
+        <div>{{ props.post.likes_count }}</div>
+      </div>
     </div>
   </a>
 </template>
