@@ -83,12 +83,18 @@ export default {
   },
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ['@nuxtjs/axios', '@nuxtjs/apollo'],
+  modules: ['@nuxtjs/axios', '@nuxtjs/apollo', '@nuxtjs/pwa'],
   axios: {},
   apollo: {
     clientConfigs: {
       default: '~/apollo/client-configs/default.js',
     },
+  },
+
+  manifest: {
+    name: "Jun-T's Portfolio",
+    short_name: 'Jun-T',
+    theme_color: '#fcf0ee',
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
